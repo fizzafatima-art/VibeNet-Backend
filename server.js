@@ -15,7 +15,10 @@ const io = new Server(server, {
 
 app.use(cors());
 app.use(express.json());
-
+// Server check karne ke liye root route
+app.get("/", (req, res) => {
+    res.send("VibeNet Backend is running successfully! 🚀");
+});
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("DB Connected ✅"))
