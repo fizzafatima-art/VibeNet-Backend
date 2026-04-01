@@ -13,7 +13,11 @@ const io = new Server(server, {
     cors: { origin: "*" } 
 });
 
-app.use(cors());
+app.use(cors({
+    origin: ["https://vibenet-frontent.vercel.app", "http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
 app.use(express.json());
 // Server check karne ke liye root route
 app.get("/", (req, res) => {
